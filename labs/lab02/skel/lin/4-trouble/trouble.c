@@ -23,7 +23,7 @@ int main(void)
 	char *msg = "Ana are mere!\n";
 
 	/* Open files */
-	fd = open("tmp1.txt", O_CREAT | O_WRONLY);
+	fd = open("tmp1.txt", O_CREAT | O_WRONLY, 0644);
 	DIE(fd < 0, "open failed");
 
 	rc = write(fd, msg, strlen(msg));

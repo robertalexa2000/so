@@ -22,9 +22,12 @@ ssize_t xread(int fd, void *buf, size_t count)
 	 */
 	while (bytes_read < count) {
 		ssize_t bytes_read_now = read(fd, buf + bytes_read,
-									  count - bytes_read);
+					      count - bytes_read);
 
 		/* TODO 3 */
+		if (bytes_read_now <= 0)
+			break;
+		bytes_read += bytes_read_now;
 	}
 
 	return bytes_read;
@@ -41,9 +44,12 @@ ssize_t xwrite(int fd, const void *buf, size_t count)
 	 */
 	while (bytes_written < count) {
 		ssize_t bytes_written_now = write(fd, buf + bytes_written,
-										  count - bytes_written);
+						  count - bytes_written);
 
 		/* TODO 3 */
+		if (bytes_written_now <= 0)
+			break;
+		bytes_written += bytes_written_now;
 	}
 
 	return bytes_written;

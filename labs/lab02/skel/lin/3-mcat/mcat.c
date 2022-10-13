@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	int fd_src;
 	int fd_dst;
 	int rc;
-	int bytesRead;
+	int bytesRead, bytesWritten;
 	char buffer[BUFSIZE];
 
 	if (argc < 2 || argc > 3) {
@@ -33,9 +33,14 @@ int main(int argc, char **argv)
 	}
 
 	/* TODO 1 - Open source file for reading */
+	fd_src = open(argv[1], O_RDONLY);
+	DIE(fd_src < 0, "Error openning file");
 
 	if (argc == 3) {
 		/* TODO 2 - Redirect stdout to destination file */
+		fd_dst = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0644);
+		rc = dup2(fd_dst, STDOUT_FILENO);
+		DIE(rc < 0, "Error duplicating destination fd");
 	}
 
 	/**
@@ -43,6 +48,12 @@ int main(int argc, char **argv)
 	 * use _only_ read and write functions
 	 * for writing to output use write(STDOUT_FILENO, buffer, bytesRead);
 	 */
+	do {
+		bytesRead = xread(fd_src, buffer, BUFSIZE);
+		DIE(bytesRead < 0, "Error reading from file");
+		bytesWritten = xwrite(STDOUT_FILENO, buffer, bytesRead);
+		DIE(bytesWritten < 0, "Error writing to file");
+	} while (bytesRead);
 
 	/**
 	 * TODO 3 - Change the I/O strategy and implement xread/xwrite. These
@@ -50,6 +61,8 @@ int main(int argc, char **argv)
 	 */
 
 	/* TODO 1 - Close file */
+	rc = close(fd_src);
+	DIE(rc < 0, "Error closing file");
 
 	return 0;
 }

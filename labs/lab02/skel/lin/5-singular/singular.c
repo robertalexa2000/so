@@ -32,6 +32,8 @@ static void check_lock(void)
 
 	/* TODO - Open LOCK_FILE file */
 	/* fdlock = open(...) */
+	fdlock = open(LOCK_FILE, O_CREAT | O_TRUNC | O_RDWR, 0644);
+	DIE(fdlock < 0, "Could not open file");
 
 	/**
 	 * TODO - Lock the file using flock
@@ -40,6 +42,8 @@ static void check_lock(void)
 	 * - in case of error - print a message showing
 	 *   there is another instance running and exit
 	 */
+	rc = flock(fdlock, LOCK_EX | LOCK_NB);
+	DIE(rc < 0, "Could not acquire lock");
 
 	printf("\nGot Lock\n\n");
 }
@@ -49,6 +53,14 @@ static void clean_up(void)
 	int rc;
 
 	/* TODO - Unlock file, close file and delete it */
+	rc = flock(fdlock, LOCK_UN);
+	DIE(rc < 0, "Could not release lock");
+
+	rc = close(fdlock);
+	DIE(rc < 0, "Could not close file");
+
+	rc = unlink(LOCK_FILE);
+	DIE(rc < 0, "Could not unlink file");
 }
 
 int main(void)
