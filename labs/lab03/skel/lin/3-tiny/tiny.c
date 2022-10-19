@@ -51,16 +51,23 @@ static void do_redirect(int filedes, const char *filename)
 	int fd;
 
 	/* TODO 3 - Redirect filedes into fd representing filename */
+	fd = open(filename, O_CREAT | O_TRUNC | O_WRONLY, 0644);
+	DIE(fd < 0, "Could not open file for redirecting");
+
+	rc = dup2(fd, filedes);
+	DIE(rc < 0, "Could not duplicate fd");
 }
 
 static void set_var(const char *name, const char *value)
 {
 	/* TODO 2 - Set the environment variable */
+	DIE(setenv(name, value, 0) < 0, "Failed to set environment variable");
 }
 
 static char *expand(const char *name)
 {
 	/* TODO 2 - Return the value of environment variables */
+	return getenv(name);
 }
 
 /**
@@ -73,10 +80,13 @@ static void simple_cmd(char **args)
 	int status;
 
 	/* TODO 1 - Create a process to execute the command */
+	pid = fork();
 
 	switch (pid) {
 	case -1:
 		/* TODO 1 - error */
+		perror("Failed to fork the current process");
+		exit(EXIT_FAILURE);
 
 		break;
 	case 0:
@@ -85,10 +95,14 @@ static void simple_cmd(char **args)
 			do_redirect(STDOUT_FILENO, stdout_file);
 
 		/* TODO 1 - child process */
+		execvp(args[0], args);
 
 		break;
 	default:
 		/* TODO 1 -  parent process */
+		wait_ret = waitpid(pid, &status, 0);
+		DIE(wait_ret < 0, "Error waiting for child");
+		printf("Child exited with error code %d\n", WEXITSTATUS(status));
 
 		break;
 	}

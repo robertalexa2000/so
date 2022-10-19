@@ -10,7 +10,7 @@
 
 int main(void)
 {
-	if (/* TODO - Enter your code _only_ here */)
+	if (fork())
 		printf(" Hello ");
 	else
 		printf(" World ");
