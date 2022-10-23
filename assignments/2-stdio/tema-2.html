@@ -1,0 +1,714 @@
+
+    
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+ lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>
+    Tema 2 Bibliotecă stdio    [CS Open CourseWare]
+  </title>
+
+  <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="date" content="2022-03-24T20:29:43+0200"/>
+<meta name="keywords" content="so,teme,tema-2"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/courses/lib/exe/opensearch.php" title="CS Open CourseWare"/>
+<link rel="start" href="/courses/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="/courses/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="/courses/feed.php?mode=list&amp;ns=so:teme"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="/courses/_export/xhtml/so/teme/tema-2"/>
+<link rel="canonical" href="http://ocw.cs.pub.ro/courses/so/teme/tema-2"/>
+<link rel="stylesheet" type="text/css" href="/courses/lib/exe/css.php?t=arctic&amp;tseed=1665132750"/>
+<script type="text/javascript">/*<![CDATA[*/var NS='so:teme';var JSINFO = {"id":"so:teme:tema-2","namespace":"so:teme","isadmin":0,"isauth":0};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="/courses/lib/exe/js.php?tseed=1665132750"></script>
+<script type="text/x-mathjax-config">/*<![CDATA[*/MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+        displayMath: [ ["$$","$$"], ["\\[","\\]"] ],
+        processEscapes: true
+    }
+});
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript">/*<![CDATA[*/
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		  
+/*!]]>*/</script>
+<script type="text/javascript">/*<![CDATA[*/
+var pageTracker = _gat._getTracker("UA-38383934-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+		  
+/*!]]>*/</script>
+
+  <link rel="shortcut icon" href="/courses/lib/tpl/arctic/images/favicon.ico" />
+
+  
+</head>
+<body>
+<div id="wrapper" class='show'>
+  <div class="dokuwiki">
+
+    
+    <div class="stylehead">
+      <div class="header">
+        <div class="pagename">
+          <a href="/courses/so/"><img height="70" src="/courses//res/sigla_so.png"/> </a>        </div>
+        <div class="logo">
+          <a style="color: #AAA !important;" href="/courses/systems/"/><img height="70" src="/courses/res/systems.png" name="dokuwiki__top"/></a>        </div>
+      </div>
+    
+       
+      <div class="breadcrumbs">
+              </div>
+      
+            </div>
+
+                  <div class="bar" id="bar__top">
+        <div class="bar-left">
+                  </div>
+        <div class="bar-right">
+          <a href="/courses/so/teme/tema-2?do=recent"  class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a><a href="/courses/so/teme/tema-2?do=login&amp;sectok=3737fa71da60fd3b203cf25d70783d71"  class="action login" rel="nofollow" title="Login">Login</a>        </div>
+    </div>
+        
+    
+    
+    
+              <div class="left_page">
+          
+<h1 class="sectionedit1" id="tema_2_biblioteca_stdio">Tema 2 Bibliotecă stdio</h1>
+<div class="level1">
+
+<p>
+<p><div class="noteimportant">
+</p>
+<ul>
+<li class="level1"><div class="li"> Dată publicare: <strong>24.03.2022</strong></div>
+</li>
+<li class="level1"><div class="li"> <b><span style="color:blue;">Deadline</span></b>: <strong>7.04.2022, ora 23:55</strong></div>
+</li>
+<li class="level1"><div class="li"> <b><span style="color:red;">Deadline hard</span></b>: <strong>10.04.2022, ora 23:55</strong></div>
+</li>
+</ul>
+
+<p>
+
+</div></p>
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="obiectivele_temei">Obiectivele temei</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Familiarizarea cu modul de funcționare al bibliotecii standard input/output (stdio)</div>
+</li>
+<li class="level1"><div class="li"> Aprofundarea conceptelor de:</div>
+<ul>
+<li class="level2"><div class="li"> I/O buffering</div>
+</li>
+<li class="level2"><div class="li"> Crearea de procese și rularea de fișiere executabile</div>
+</li>
+<li class="level2"><div class="li"> Redirectearea intrărilor și ieșirilor standard</div>
+</li>
+<li class="level2"><div class="li"> Generarea de biblioteci dinamice</div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit3" id="dezvoltarea_temei">Dezvoltarea temei</h2>
+<div class="level2">
+
+<p>
+Dezvoltarea trebuie făcută exclusiv pe <a href="/courses/so/info/mv" class="wikilink1" title="so:info:mv">mașinile virtuale</a> SO. 
+</p>
+
+<p>
+<p><div class="noteimportant">
+Nu rulați testele <em>“local”</em> (pe calculatoarele voastre sau în mașinile voastre virtuale). Veți avea diferențe față de vmchecker, iar echipa de SO nu va depana testele care merg “local”, dar pe vmchecker nu merg. Pe vmchecker sunt aceleași <a href="/courses/so/info/mv" class="wikilink1" title="so:info:mv">mașinile virtuale</a> ca cele de pe wiki.
+
+</div></p>
+</p>
+
+<p>
+<p><div class="notetip">
+Este încurajat ca lucrul la tema să se desfășoare folosind <code>git</code>. Indicați în README link-ul către repository dacă ați folosit git. 
+<strong>Asigurați-vă că responsabilii de teme au drepturi de citire asupra repo-ului vostru</strong>.
+</p>
+
+<p>
+Pentru a folosi <code>git</code>, puteți să vă creați un repository privat pe <a href="https://github.com/" class="urlextern" title="https://github.com/"  rel="nofollow">github</a> și să dați drepturi de citire pentru <strong>molecula2788</strong>.
+</p>
+
+<p>
+Motivul pentru care încurajăm acest lucru este că responsabilii de teme se pot uita mai rapid pe <a href="https://github.com/" class="urlextern" title="https://github.com/"  rel="nofollow">github</a> la temele voastre pentru a vă ajuta în cazul în care întâmpinați probleme/bug-uri.
+</p>
+
+<p>
+Crash-course practic de git puteți găsi aici: <a href="http://gitimmersion.com/lab_01.html#main_content" class="urlextern" title="http://gitimmersion.com/lab_01.html#main_content"  rel="nofollow">git-immersion</a>
+</p>
+
+<p>
+<strong>Dacă ați creat deja un repo privat pe <a href="https://gitlab.cs.pub.ro" class="urlextern" title="https://gitlab.cs.pub.ro"  rel="nofollow">Gitlab</a> puteți să-l folosiți în continuare pe acela</strong>.
+
+</div></p>
+</p>
+
+<p>
+<p><div class="noteimportant">
+Atât semnătura pentru funcția de comparare (veți vedea mai jos pentru ce vă trebuie), cât și testele publice care se rulează pe vmchecker se găsesc pe <a href="https://github.com/systems-cs-pub-ro/so/tree/master/assignments/2-stdio" class="urlextern" title="https://github.com/systems-cs-pub-ro/so/tree/master/assignments/2-stdio"  rel="nofollow">repo-ul so-assignments de pe Github</a>:
+</p>
+<pre class="code bash"><span class="co4">student@so:~$ </span><span class="kw2">git clone</span> https:<span class="sy0">//</span>github.com<span class="sy0">/</span>systems-cs-pub-ro<span class="sy0">/</span>so
+<span class="co4">student@so:~$ </span><span class="kw3">cd</span> assignments<span class="sy0">/</span><span class="nu0">2</span>-stdio</pre>
+
+<p>
+În repository-ul de pe Github se vor găsi și scheletele pentru temele viitoare, care vor fi actualizate și se vor putea descărca pe viitor folosind comanda:
+</p>
+<pre class="code bash"><span class="co4">student@so:~$ </span><span class="kw2">git pull</span></pre>
+
+<p>
+Tot prin comanda de mai sus se pot obține toate actualizările făcute în cadrul temei 2.
+
+</div></p>
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="enunt">Enunț</h2>
+<div class="level2">
+
+<p>
+Să se realizeze o implementare minimală a bibliotecii stdio, care să permită lucrul cu fișiere. Biblioteca va trebui să implementeze structura SO_FILE (similar cu FILE din biblioteca standard C), împreună cu funcțiile de citire/scriere. De asemenea, va trebui să ofere funcționalitatea de buffering.
+</p>
+
+<p>
+Rezolvarea temei va trebui să genereze o bibliotecă dinamică numită <code>libso_stdio.so</code>/<code>so_stdio.dll</code> care implementează header-ul
+<a href="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/util/so_stdio.h" class="urlextern" title="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/util/so_stdio.h"  rel="nofollow">so_stdio.h</a>. În acest header găsiți semnăturile functiilor exportate de biblioteca generată de voi.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="so_file">SO_FILE</h2>
+<div class="level2">
+
+<p>
+Este tipul de date care descrie un fișier deschis și este folosit de toate celelalte funcții. Un pointer la o astfel de structură este obținut la deschiderea unui fișier, folosind funcția <code>so_fopen</code>.
+</p>
+<pre class="code cpp">SO_FILE <span class="sy2">*</span>so_fopen<span class="br0">&#40;</span><span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>pathname, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>mode<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Argumentele funcției sunt similare cu cele pentru <code>fopen</code>:
+</p>
+<ul>
+<li class="level1"><div class="li"><code>pathname</code> reprezintă calea către un fișier</div>
+</li>
+<li class="level1"><div class="li"><code>mode</code> este un string care determină modul în care va fi deschis fișierul. Poate fi unul din următoarele:</div>
+<ul>
+<li class="level2"><div class="li"><code>r</code> - deschide fișierul pentru citire. Dacă fișierul nu există, funcția eșuează.</div>
+</li>
+<li class="level2"><div class="li"><code>r+</code> - deschide fișierul pentru citire și scriere. Dacă fișierul nu există, funcția eșuează.</div>
+</li>
+<li class="level2"><div class="li"><code>w</code> - deschide fișierul pentru scriere. Dacă fișierul nu există, este creat. Dacă fișierul există, este trunchiat la dimensiune 0</div>
+</li>
+<li class="level2"><div class="li"><code>w+</code> - deschide fișierul pentru citire și scriere. Dacă fișierul nu există, este creat. Dacă fișierul există, este trunchiat la dimensiune 0</div>
+</li>
+<li class="level2"><div class="li"><code>a</code> - deschide fișierul în modul <code>append</code> - scriere la sfârșitul fișierului. Dacă fișierul nu există, este creat.</div>
+</li>
+<li class="level2"><div class="li"><code>a+</code> - deschide fișierul în modul <code>append+read</code>. Dacă fișierul nu există, este creat.</div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Funcția <code>so_fopen</code> alocă o structură <code>SO_FILE</code> pe care o întoarce. În caz de eroare, funcția întoarce <code>NULL</code>.
+</p>
+
+<p>
+Închiderea unui fișier se face cu <code>so_fclose</code>.
+</p>
+<pre class="code cpp"><span class="kw4">int</span> so_fclose<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Închide fișierul primit ca parametru și eliberează memoria folosită de structura <code>SO_FILE</code>. Întoarce 0 în caz de succes sau <code>SO_<abbr title="End of file">EOF</abbr></code> în caz de eroare.
+</p>
+
+</div>
+
+<h2 class="sectionedit6" id="citirea_si_scrierea">Citirea și scrierea</h2>
+<div class="level2">
+
+<p>
+Aceste operații se realizează cu ajutorul funcțiilor <code>so_fgetc</code>, <code>so_fputc</code>, <code>so_fread</code> și <code>so_fwrite</code>.
+</p>
+<pre class="code cpp"><span class="kw4">int</span> so_fgetc<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Citește un caracter din fișier. Întoarce caracterul ca <code>unsigned char</code> extins la <code>int</code>, sau <code>SO_<abbr title="End of file">EOF</abbr></code> în caz de eroare.
+</p>
+<pre class="code cpp"><span class="kw4">int</span> so_fputc<span class="br0">&#40;</span><span class="kw4">int</span> c, SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Scrie un caracter în fișier. Întoarce caracterul scris sau <code>SO_<abbr title="End of file">EOF</abbr></code> în caz de eroare.
+</p>
+<pre class="code cpp"><span class="kw4">size_t</span> so_fread<span class="br0">&#40;</span><span class="kw4">void</span> <span class="sy2">*</span>ptr, <span class="kw4">size_t</span> size, <span class="kw4">size_t</span> nmemb, SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Citește <code>nmemb</code> elemente, fiecare de dimensiune <code>size</code>. Datele citite sunt stocate la adresa de memorie specificată prin <code>ptr</code>. Întoarce numărul de elemente citite. În caz de eroare sau dacă s-a ajuns la sfârșitul fișierului, funcția întoarce 0.
+</p>
+<pre class="code cpp"><span class="kw4">size_t</span> so_fwrite<span class="br0">&#40;</span><span class="kw4">const</span> <span class="kw4">void</span> <span class="sy2">*</span>ptr, <span class="kw4">size_t</span> size, <span class="kw4">size_t</span> nmemb, SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Scrie <code>nmemb</code> elemente, fiecare de dimensiune <code>size</code>. Datele ce urmează a fi scrise sunt luate de la adresa de memorie specificată prin <code>ptr</code>. Întoarce numărul de elemente scrise, sau 0 în caz de eroare.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="pozitionarea_cursorului_in_fisier">Poziționarea cursorului în fișier</h2>
+<div class="level2">
+<pre class="code cpp"><span class="kw4">int</span> so_fseek<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream, <span class="kw4">long</span> offset, <span class="kw4">int</span> whence<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Mută cursorul fișierului. Noua poziție este obținută prin adunarea valorii <code>offset</code> la poziția specificată de <code>whence</code>, astfel:
+</p>
+<ul>
+<li class="level1"><div class="li">SEEK_SET - noua poziție este <code>offset</code> bytes față de începutul fișierului</div>
+</li>
+<li class="level1"><div class="li">SEEK_CUR - noua poziție este <code>offset</code> bytes față de poziția curentă</div>
+</li>
+<li class="level1"><div class="li">SEEK_END - noua poziție este <code>offset</code> bytes față de sfârșitul fișierului</div>
+</li>
+</ul>
+
+<p>
+Întoarce 0 în caz de succes și -1 în caz de eroare.
+</p>
+<pre class="code cpp"><span class="kw4">long</span> so_ftell<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Întoarce poziția curentă din fișier. În caz de eroare funcția întoarce -1.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="buffering">Buffering</h2>
+<div class="level2">
+
+<p>
+Proprietatea esențială a bibliotecii stdio este că aceasta face <code>buffering</code>. O structură <code>SO_FILE</code> are un buffer asociat, iar operațiile de citire/scriere se folosesc de acest buffer:
+</p>
+<ul>
+<li class="level1"><div class="li">Operațiile de citire (<code>so_fgetc</code>, <code>so_fread</code>) întorc datele direct din buffer. Atunci când bufferul este gol sau nu există date suficiente, acesta este populat cu date din fișier, folosind <abbr title="Application Programming Interface">API</abbr>-ul pus la dispoziție de sistemul de operare (<code>read</code>/<code>ReadFile</code>)</div>
+</li>
+<li class="level1"><div class="li">Operațiile de scriere (<code>so_fputc</code>, <code>so_fwrite</code>) scriu datele în buffer. În situația când bufferul este plin (sau când se apelează <code>so_fflush</code>), datele se scriu în fișier, folosind <abbr title="Application Programming Interface">API</abbr>-ul pus la dispoziție de sistemul de operare(<code>write</code>/<code>WriteFile</code>).</div>
+</li>
+</ul>
+<pre class="code cpp"><span class="kw4">int</span> so_fflush<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Are sens doar pentru fișierele pentru care ultima operație a fost una de scriere. În urma apelului acestei funcții, datele din buffer sunt scrise în fișier. Întoarce 0 în caz de succes sau <code>SO_<abbr title="End of file">EOF</abbr></code> în caz de eroare.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="alte_functii">Alte funcții</h2>
+<div class="level2">
+<pre class="code cpp"><span class="coMULTI">/* Linux */</span>
+<span class="kw4">int</span> so_fileno<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span>
+<span class="coMULTI">/* Windows */</span>
+HANDLE so_fileno<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Întoarce file descriptorul/HANDLE-ul asociat structurii <code>SO_FILE</code>.
+</p>
+<pre class="code cpp"><span class="kw4">int</span> so_feof<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Întoarce o valoarea diferită de 0 dacă s-a ajuns la sfârșitul fișierului sau 0 în caz contrar.
+</p>
+<pre class="code cpp"><span class="kw4">int</span> so_ferror<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Întoarce o valoarea diferită de 0 dacă s-a întâlnit vreo eroare în urma unei operații cu fișierul sau 0 în caz contrar.
+</p>
+
+</div>
+
+<h2 class="sectionedit10" id="rularea_de_procese">Rularea de procese</h2>
+<div class="level2">
+<pre class="code cpp">SO_FILE <span class="sy2">*</span>so_popen<span class="br0">&#40;</span><span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>command, <span class="kw4">const</span> <span class="kw4">char</span> <span class="sy2">*</span>type<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Lansează un proces nou, care va executa comanda specificată de parametrul <code>command</code>. Ca implementare, se va executa <code>sh -c command</code>, respectiv <code>cmd /C command</code>, folosind un pipe pentru a redirecta intrarea standard/ieșirea standard a noului proces. Funcția întoarce o structură <code>SO_FILE</code> pe care apoi se pot face operațiile uzuale de citire/scriere, ca și cum ar fi un fișier obișnuit.
+</p>
+
+<p>
+Dacă apelul <code>fork</code>/<code>CreateProcess</code> eșuează se va întoarce NULL.
+</p>
+
+<p>
+Valorile parametrului <code>type</code> pot fi:
+</p>
+<ul>
+<li class="level1"><div class="li">“r” - fișierul întors este read-only. Operațiile <code>so_fgetc</code>/<code>so_fread</code> executate pe fișier vor citi de la ieșirea standard a procesului creat.</div>
+</li>
+<li class="level1"><div class="li">“w” - fișierul întors este write-only. Operațiile <code>so_fputc</code>/<code>so_fwrite</code> executate pe fișier vor scrie la intrarea standard a procesului creat.</div>
+</li>
+</ul>
+<pre class="code cpp"><span class="kw4">int</span> so_pclose<span class="br0">&#40;</span>SO_FILE <span class="sy2">*</span>stream<span class="br0">&#41;</span><span class="sy4">;</span></pre>
+
+<p>
+Se apelează doar pentru fișierele deschise cu <code>so_popen</code>. Așteaptă terminarea procesului lansat de <code>so_popen</code> și eliberează memoria ocupată de structura <code>SO_FILE</code>. Întoarce codul de ieșire al procesului (cel obținut în urma apelului <code>waitpid</code>/<code>GetExitCodeProcess</code>). Dacă apelul <code>waitpid</code>/<code>WaitForSingleObject</code> eșuează, se va întoarce -1.
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="precizarirecomandari_pentru_implementare">Precizări/recomandări pentru implementare</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Dimensiunea implicită a bufferului unui fișier este de 4096 bytes.</div>
+</li>
+<li class="level1"><div class="li"> Pentru simplitate, sugerăm să începeți implementarea cu <code>so_fgetc</code>/<code>so_fputc</code>. Apoi <code>so_fread</code>/<code>so_fwrite</code> pot fi implementate pe baza lor.</div>
+</li>
+<li class="level1"><div class="li"> Pentru fișierele deschise în unul din modurile “r”, “r+”, “w”, “w+”, cursorul va fi poziționat inițial la începutul fișierului.</div>
+</li>
+<li class="level1"><div class="li"> Operațiile de scriere pe un fișier deschis în modul “a” se fac ca și cum fiecare operație ar fi precedată de un seek la sfârșitul fișierului.</div>
+</li>
+<li class="level1"><div class="li"> Pentru fișierele deschise în modul “a+”, scrierile se fac la fel ca mai sus. În schimb, citirea se face inițial de la începutul fișierului.</div>
+</li>
+<li class="level1"><div class="li"> Conform standardului C, pentru fișierele deschise în modul update (i.e. toate modurile care conțin caracterul &#039;+&#039; la final: “r+”, “w+”, “a+”) trebuie respectate următoarele (de asemenea vor fi respectate în teste):</div>
+<ul>
+<li class="level2"><div class="li"> Între o operație de citire urmată de o operație de scriere trebuie intercalată o operație de <code>fseek</code>.</div>
+</li>
+<li class="level2"><div class="li"> Între o operație de scriere urmată de o operație de citire trebuie intercalată o operație de <code>fflush</code> sau <code>fseek</code>.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> La o operație de <code>so_fseek</code> trebuie avute în vedere următoarele:</div>
+<ul>
+<li class="level2"><div class="li"> Dacă ultima operație făcută pe fișier a fost una de citire, tot bufferul trebuie invalidat.</div>
+</li>
+<li class="level2"><div class="li"> Dacă ultima operație făcută pe fișier a fost una de scriere, conținutul bufferului trebuie scris în fișier.</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> Arhiva cu soluția trebuie să conțină un fișier <code>Makefile</code> care să aibă cel puțin următoarele reguli:</div>
+<ul>
+<li class="level2"><div class="li"> <code>build</code>: compilează biblioteca dinamică <code>libso_stdio.so</code>/<code>so_stdio.dll</code></div>
+</li>
+<li class="level2"><div class="li"> <code>clean</code>: șterge toate fișierele binare rezultate în urma compilării</div>
+</li>
+</ul>
+</li>
+<li class="level1"><div class="li"> De asemenea, arhiva trebuie să conțină fișierul <code>README</code></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit12" id="precizari_linux">Precizări Linux</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">Tema se va realiza folosind funcții POSIX. Astfel <code>so_fopen</code> se va implementa folosind <code>open</code>, <code>so_fgetc</code>/<code>so_fread</code> folosind <code>read</code>, <code>so_fputc</code>/<code>so_write</code> folosind <code>write</code>, etc.</div>
+</li>
+<li class="level1"><div class="li">În implementarea <code>popen</code> trebuie să închideți capetele de pipe nefolosite atât în procesul părinte cât și în procesul copil.</div>
+</li>
+<li class="level1"><div class="li"> Nu aveți voie să folosiți funcția <code>system()</code></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit13" id="precizari_windows">Precizări Windows</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">Tema se va realiza folosind funcții Win32. Astfel <code>so_fopen</code> se va implementa folosind <code>CreateFile</code>, <code>so_fgetc</code>/<code>so_fread</code> folosind <code>ReadFile</code>, <code>so_fputc</code>/<code>so_write</code> folosind <code>WriteFile</code>, etc.</div>
+</li>
+<li class="level1"><div class="li">În implementarea <code>popen</code>, înainte de a apela <code>CreateProcess</code>, trebuie să marcați ca nemoștenibil capătul de pipe nefolosit de către procesul copil. În acest scop, puteți folosi funcția <code>SetHandleInformation</code>.</div>
+</li>
+<li class="level1"><div class="li">Pentru a detecta <abbr title="End of file">EOF</abbr> la citirea dintr-un pipe trebuie ca <code>ReadFile</code> să întoarcă <code>FALSE</code>, iar <code>GetLastError</code> să întoarcă <code>ERROR_BROKEN_PIPE</code>.</div>
+</li>
+<li class="level1"><div class="li">Din motive care țin de funcționalitatea checkerului, va trebui să deschideți fișierul cu <code>GENERIC_READ|GENERIC_WRITE</code> și <code>FILE_SHARE_READ|FILE_SHARE_WRITE</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit14" id="testare">Testare</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li">Pentru simplificarea procesului de corectare a temelor, dar și pentru a reduce greșelile temelor trimise, corectarea se va realiza automat cu ajutorul testelor publice indicate în secțiunea de materiale ajutătoare.</div>
+</li>
+<li class="level1"><div class="li">Există 33 teste. Se pot obține maxim 9.5 puncte prin trecerea testelor. Se acordă 0.5 puncte din oficiu.</div>
+</li>
+<li class="level1"><div class="li"><strong>Testul 0</strong> din cadrul checker-ului temei verifică automat coding style-ul surselor voastre folosind <a href="https://www.kernel.org/doc/Documentation/process/coding-style.rst" class="urlextern" title="https://www.kernel.org/doc/Documentation/process/coding-style.rst"  rel="nofollow"> stilul de coding din kernelul Linux</a>. Acest test valorează <strong>5 puncte</strong> din totalul de 100. Pentru mai multe informații despre un cod de calitate citiți <a href="/courses/so/laboratoare/resurse/c_tips" class="wikilink1" title="so:laboratoare:resurse:c_tips"> pagina de recomandări</a>.</div>
+</li>
+<li class="level1"><div class="li">Testele de la 2 încolo au nevoie și ca funcția <code>so_fileno</code> să fie implementată.</div>
+</li>
+<li class="level1"><div class="li">Din punctajul temei se vor scădea automat puncte pentru întârzieri și pentru warning-uri. La revizia temei, se poate scădea suplimentar pentru nerespectarea criteriilor scrise la secțiunea de <a href="/courses/so/teme/general#lista_depunctari" class="wikilink1" title="so:teme:general"> depunctări</a> ale temelor.</div>
+</li>
+<li class="level1"><div class="li">Pentru neverificarea valorilor de retur se vor șcadea 0.4 puncte.</div>
+</li>
+<li class="level1"><div class="li">În cazuri excepționale se poate scădea mai mult decât este menționat mai sus.</div>
+</li>
+</ul>
+
+<p>
+<p><div class="noteimportant">
+Înainte de a <a href="https://vmchecker.cs.pub.ro/ui/" class="urlextern" title="https://vmchecker.cs.pub.ro/ui/"  rel="nofollow"> uploada</a> tema, asigurați-vă că implementarea voastră trece testele pe <a href="/courses/so/info/mv" class="wikilink1" title="so:info:mv"> mașinile virtuale</a>. Dacă apar probleme în rezultatele testelor, acestea se vor reproduce și pe <a href="https://vmchecker.cs.pub.ro/ui/" class="urlextern" title="https://vmchecker.cs.pub.ro/ui/"  rel="nofollow"> vmchecker</a>.
+
+</div></p>
+</p>
+
+<p>
+<p><div class="notetip">
+Pentru a inspecta diferențele între output-ul bibliotecii voastre și fișierele de referință ale checker-ului setați <code>DO_CLEANUP=no</code> în scriptul run_test.sh pentru <a href="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/checker-lin/_test/run_test.sh" class="urlextern" title="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/checker-lin/_test/run_test.sh"  rel="nofollow"> Linux</a> respectiv <a href="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/checker-win/_test/run_test.sh" class="urlextern" title="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/checker-win/_test/run_test.sh"  rel="nofollow"> Windows</a>.
+
+</div></p>
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="materiale_ajutatoare">Materiale ajutătoare</h2>
+<div class="level2">
+
+<p>
+Cursuri utile:
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="/courses/so/cursuri/curs-01" class="wikilink1" title="so:cursuri:curs-01"> Curs 1</a></div>
+</li>
+<li class="level1"><div class="li"><a href="/courses/so/cursuri/curs-02" class="wikilink1" title="so:cursuri:curs-02"> Curs 2</a></div>
+</li>
+<li class="level1"><div class="li"><a href="/courses/so/cursuri/curs-03" class="wikilink1" title="so:cursuri:curs-03"> Curs 3</a></div>
+</li>
+</ul>
+
+<p>
+Laboratoare utile:
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="/courses/so/laboratoare/laborator-01" class="wikilink1" title="so:laboratoare:laborator-01"> Laborator 1</a></div>
+</li>
+<li class="level1"><div class="li"><a href="/courses/so/laboratoare/laborator-02" class="wikilink1" title="so:laboratoare:laborator-02"> Laborator 2</a></div>
+</li>
+<li class="level1"><div class="li"><a href="/courses/so/laboratoare/laborator-03" class="wikilink1" title="so:laboratoare:laborator-03"> Laborator 3</a></div>
+</li>
+</ul>
+
+<p>
+Resurse:
+</p>
+<ul>
+<li class="level1"><div class="li"> Header-ul <a href="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/util/so_stdio.h" class="urlextern" title="https://github.com/systems-cs-pub-ro/so/blob/master/assignments/2-stdio/util/so_stdio.h"  rel="nofollow">so_stdio.h</a> expus de biblioteca <code>so_stdio</code>.</div>
+</li>
+</ul>
+
+<p>
+Pagina de Upload:
+</p>
+<ul>
+<li class="level1"><div class="li"><a href="https://elf.cs.pub.ro/vmchecker/ui" class="urlextern" title="https://elf.cs.pub.ro/vmchecker/ui"  rel="nofollow"> vmchecker</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit16" id="suport_intrebari_si_clarificari">Suport, întrebări și clarificări</h2>
+<div class="level2">
+
+<p>
+Pentru întrebări sau nelămuriri legate de temă folosiți <a href="https://curs.upb.ro/2021/mod/forum/view.php?id=194420" class="urlextern" title="https://curs.upb.ro/2021/mod/forum/view.php?id=194420"  rel="nofollow">forumul temei</a>. 
+<p><div class="noteimportant">
+Orice intrebare pe forum <strong>trebuie</strong> să conțină o descriere cât mai clară a eventualei probleme. Întrebări de forma: “Nu merge X. De ce?” fără o descriere mai amănunțită vor primi un răspuns mai greu. Înainte să postați o întrebare pe forum citiți și celelalte întrebări(dacă există) pentru a vedea dacă întrebarea voastră a fost deja adresată sub o altă formă(în cazul în care răspunsul din partea echipei vine mai greu este mai rapid să căutați voi deja printre întrebările existente).
+</p>
+
+<p>
+<strong>ATENȚIE</strong> să nu postați imagini cu părți din soluția voastră pe forumul pus la dispoziție sau orice alt canal public de comunicație. Dacă veți face acest lucru, vă asumați răspunderea dacă veți primi copiat pe temă.
+</p>
+
+<p>
+
+</div></p>
+</p>
+
+</div>
+
+        </div>
+        <div class="right_sidebar">
+          <form action="/courses/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><input type="submit" value="Search" class="button" title="Search" /><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>          <div class="namespace_sidebar sidebar_box">
+
+
+
+<h1 class="sectionedit1" id="informatii_generale_so">Informații generale SO</h1>
+<div class="level1">
+
+<div><div id="nojs_indexmenu_32329758763447c07b92dc" data-jsajax="%26skipfile%3D%253D/so%253Ainfo%253Astart/" class="indexmenu_nojs">
+
+<ul class="idx">
+<li class="level1"><div class="li"><a href="/courses/so/info/catalog" class="wikilink1" title="so:info:catalog">Catalog</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/documentatie" class="wikilink1" title="so:info:documentatie">Documentație și alte resurse</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/feed" class="wikilink1" title="so:info:feed">Feed RSS</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/hall" class="wikilink1" title="so:info:hall">Hall of SO</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/lista-discutii" class="wikilink1" title="so:info:lista-discutii">Listă de discuții</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/mv" class="wikilink1" title="so:info:mv">Mașini virtuale</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/info/trimitere-teme" class="wikilink1" title="so:info:trimitere-teme">Trimitere teme</a></div></li>
+</ul>
+</div></div>
+
+</div>
+<!-- EDIT1 SECTION "Informații generale SO" [12-194] -->
+<h1 class="sectionedit2" id="informatii_so_2021-2022">Informații SO 2021-2022</h1>
+<div class="level1">
+
+<div><div id="nojs_indexmenu_130499469363447c07bc1bc" data-jsajax="" class="indexmenu_nojs">
+
+<ul class="idx">
+<li class="open"><div class="li"><a href="/courses/so/meta/examen" class="indexmenu_idx_head">Examen</a></div>
+<ul class="idx">
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2012-2013" class="wikilink1" title="so:meta:examen:2012-2013">Examen CA/CC 2012-2013</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2013-2014" class="wikilink1" title="so:meta:examen:2013-2014">Examen CA/CC 2013-2014</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2014-2015" class="wikilink1" title="so:meta:examen:2014-2015">Examen CA/CC 2014-2015</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2015-2016" class="wikilink1" title="so:meta:examen:2015-2016">Examen CA/CC 2015-2016</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2016-2017" class="wikilink1" title="so:meta:examen:2016-2017">Examen CA/CB/CC 2016-2017</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2017-2018" class="wikilink1" title="so:meta:examen:2017-2018">Examen CA/CB/CC 2017-2018</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2018-2019" class="wikilink1" title="so:meta:examen:2018-2019">Examen CA/CB/CC 2018-2019</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2019-2020" class="wikilink1" title="so:meta:examen:2019-2020">Examen CA/CB/CC 2019-2020</a></div></li>
+<li class="level2"><div class="li"><a href="/courses/so/meta/examen/2020-2021" class="wikilink1" title="so:meta:examen:2020-2021">Examen CA/CB/CC 2020-2021</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/anunturi" class="wikilink1" title="so:meta:anunturi">Anunțuri</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/calendar" class="wikilink1" title="so:meta:calendar">Calendar</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/echivalari" class="wikilink1" title="so:meta:echivalari">Echivalări teme</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/hit_list" class="wikilink1" title="so:meta:hit_list">Distincții</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/karma" class="wikilink1" title="so:meta:karma">Karma Awards</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/need-to-know" class="wikilink1" title="so:meta:need-to-know">SO Need to Know</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/notare" class="wikilink1" title="so:meta:notare">Reguli generale și notare</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/meta/orar" class="wikilink1" title="so:meta:orar">Orar și împărțire pe semigrupe</a></div></li>
+</ul>
+</div></div>
+
+</div>
+<!-- EDIT2 SECTION "Informații SO 2021-2022" [195-261] -->
+<h1 class="sectionedit3" id="laboratoare">Laboratoare</h1>
+<div class="level1">
+
+<p>
+Accesibile pe GitHub, în <a href="https://github.com/open-education-hub/operating-systems-oer" class="urlextern" title="https://github.com/open-education-hub/operating-systems-oer"  rel="nofollow">organizația Open Education Hub</a>
+</p>
+
+</div>
+<!-- EDIT3 SECTION "Laboratoare" [262-453] -->
+<h1 class="sectionedit4" id="curs">Curs</h1>
+<div class="level1">
+
+<p>
+Accesibile pe GitHub, în <a href="https://github.com/open-education-hub/operating-systems-oer" class="urlextern" title="https://github.com/open-education-hub/operating-systems-oer"  rel="nofollow">organizația Open Education Hub</a>
+</p>
+
+</div>
+<!-- EDIT4 SECTION "Curs" [454-1442] -->
+<h1 class="sectionedit5" id="teme">Teme</h1>
+<div class="level1">
+
+<div><div id="nojs_indexmenu_183176195563447c07bf0a5" data-jsajax="" class="indexmenu_nojs">
+
+<ul class="idx">
+<li class="closed"><div class="li"><a href="/courses/so/teme/tema-asist" class="indexmenu_idx_head">Tema Asistenți - Guardian process</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/contestatii" class="wikilink1" title="so:teme:contestatii">Contestații</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/folosire-gitlab" class="wikilink1" title="so:teme:folosire-gitlab">Git. Indicații folosire GitLab</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/general" class="wikilink1" title="so:teme:general">Indicații generale teme</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/hackathon" class="wikilink1" title="so:teme:hackathon">Hackathon SO</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/tema-1" class="wikilink1" title="so:teme:tema-1">Tema 1 Multi-platform Development</a></div></li>
+<li class="level1"><div class="li"><span class="curid"><a href="/courses/so/teme/tema-2" class="wikilink1" title="so:teme:tema-2">Tema 2 Bibliotecă stdio</a></span></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/tema-3" class="wikilink1" title="so:teme:tema-3">Tema 3 Loader de Executabile</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/tema-4" class="wikilink1" title="so:teme:tema-4">Tema 4 Planificator de threaduri</a></div></li>
+<li class="level1"><div class="li"><a href="/courses/so/teme/tema-5" class="wikilink1" title="so:teme:tema-5">Tema 5 Server web asincron</a></div></li>
+</ul>
+</div></div>
+
+</div>
+<!-- EDIT5 SECTION "Teme" [1443-] -->
+</div>
+<div class="toc_sidebar sidebar_box">
+<!-- TOC START -->
+<div id="sb__right__dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#tema_2_biblioteca_stdio">Tema 2 Bibliotecă stdio</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#obiectivele_temei">Obiectivele temei</a></div></li>
+<li class="level2"><div class="li"><a href="#dezvoltarea_temei">Dezvoltarea temei</a></div></li>
+<li class="level2"><div class="li"><a href="#enunt">Enunț</a></div></li>
+<li class="level2"><div class="li"><a href="#so_file">SO_FILE</a></div></li>
+<li class="level2"><div class="li"><a href="#citirea_si_scrierea">Citirea și scrierea</a></div></li>
+<li class="level2"><div class="li"><a href="#pozitionarea_cursorului_in_fisier">Poziționarea cursorului în fișier</a></div></li>
+<li class="level2"><div class="li"><a href="#buffering">Buffering</a></div></li>
+<li class="level2"><div class="li"><a href="#alte_functii">Alte funcții</a></div></li>
+<li class="level2"><div class="li"><a href="#rularea_de_procese">Rularea de procese</a></div></li>
+<li class="level2"><div class="li"><a href="#precizarirecomandari_pentru_implementare">Precizări/recomandări pentru implementare</a></div></li>
+<li class="level2"><div class="li"><a href="#precizari_linux">Precizări Linux</a></div></li>
+<li class="level2"><div class="li"><a href="#precizari_windows">Precizări Windows</a></div></li>
+<li class="level2"><div class="li"><a href="#testare">Testare</a></div></li>
+<li class="level2"><div class="li"><a href="#materiale_ajutatoare">Materiale ajutătoare</a></div></li>
+<li class="level2"><div class="li"><a href="#suport_intrebari_si_clarificari">Suport, întrebări și clarificări</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+</div>
+        </div>
+      
+    
+      <div class="stylefoot">
+        <div class="meta">
+          <div class="user">
+                    </div>
+          <div class="doc">
+          so/teme/tema-2.txt · Last modified: 2022/03/24 20:29 by ionut.mihalache1506          </div>
+        </div>
+      </div>
+
+    <div class="clearer"></div>
+
+    
+                <div class="bar" id="bar__bottom">
+      <div class="bar-left">
+        <a href="/courses/so/teme/tema-2?do=revisions"  class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]">Old revisions</a>      </div>
+      <div class="bar-right">
+        <a href="/courses/so/teme/tema-2?do=media&amp;ns=so%3Ateme"  class="action media" rel="nofollow" title="Media Manager">Media Manager</a><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]">Back to top</a>      </div>
+    </div>
+    <div class="clearer"></div>
+            
+    <div align="center" class="footerinc">
+  <div class="license"><a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license"><img src="/courses/lib/images/license/button/cc-by-sa.png" alt="CC Attribution-Share Alike 3.0 Unported" /></a></div>
+  <a target="_blank" href="http://www.chimeric.de" title="www.chimeric.de"><img src="/courses/lib/tpl/arctic/images/button-chimeric-de.png" width="80" height="15" alt="www.chimeric.de" border="0" /></a>
+
+  <a target="_blank" href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS"><img src="/courses/lib/tpl/arctic/images/button-css.png" width="80" height="15" alt="Valid CSS" border="0" /></a>
+
+  <a target="_blank" href="http://wiki.splitbrain.org/wiki:dokuwiki" title="Driven by DokuWiki"><img src="/courses/lib/tpl/arctic/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" border="0" /></a>
+
+  <a target="_blank" href="http://www.firefox-browser.de" title="do yourself a favour and use a real browser - get firefox"><img src="/courses/lib/tpl/arctic/images/button-firefox.png" width="80" height="15" alt="do yourself a favour and use a real browser - get firefox!!" border="0" /></a>
+  
+  <a target="_blank" href="/courses/feed.php" title="Recent changes RSS feed"><img src="/courses/lib/tpl/arctic/images/button-rss.png" width="80" height="15" alt="Recent changes RSS feed" border="0" /></a>
+
+  <a target="_blank" href="http://validator.w3.org/check/referer" title="Valid XHTML 1.0"><img src="/courses/lib/tpl/arctic/images/button-xhtml.png" width="80" height="15" alt="Valid XHTML 1.0" border="0" /></a>
+</div>
+
+  </div>
+</div>
+
+<div class="no"><img src="/courses/lib/exe/indexer.php?id=so%3Ateme%3Atema-2&amp;1665432583" width="2" height="1" alt="" /></div>
+</body>
+</html>
