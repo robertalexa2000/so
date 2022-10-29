@@ -11,6 +11,10 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <sys/sysmacros.h>
+#include <sys/mount.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 #include "utils.h"
 
@@ -19,12 +23,12 @@
 const char *delim = " \t\n";
 char *prompt = "so-lab12";
 
-//#define TODO2
-//#define TODO3
-//#define TODO4
-//#define TODO5
-//#define TODO6
-//#define TODO7
+#define TODO2
+#define TODO3
+#define TODO4
+#define TODO5
+#define TODO6
+#define TODO7
 
 int main(void)
 {
@@ -34,6 +38,9 @@ int main(void)
 	char *arg2;
 	char *arg3;
 	int ret; /* to be used for function calls return code */
+	struct stat statbuf;
+	DIR *dirstream;
+	struct dirent *dirent;
 
 	while (1) {
 		printf("<%s>", prompt);
@@ -64,8 +71,12 @@ int main(void)
 			if (!arg1)
 				continue;
 
+			ret = stat(arg1, &statbuf);
+			DIE(ret < 0, "Could not get file metadata");
+
 			printf("%s: <%c> %d:%d\n",
-			       arg1, /* type */, /* major */, /* minor */);
+			       arg1, S_ISCHR(statbuf.st_mode) ? 'c' : 'b',
+			       major(statbuf.st_rdev), minor(statbuf.st_rdev));
 		}
 #endif
 
@@ -78,10 +89,16 @@ int main(void)
 			arg1 = strtok(NULL, delim); /* source */
 			arg2 = strtok(NULL, delim); /* target */
 			arg3 = strtok(NULL, delim);/* fs_type (e.g: ext2) */
+
+			ret = mount(arg1, arg2, arg3, 0, NULL);
+			DIE(ret < 0, "Could not mount FS");
 		}
 		if (strncmp(cmd, "umount", 6) == 0) {
 			/* TODO3: implement umount */
 			arg1 = strtok(NULL, delim); /* target */
+
+			ret = umount(arg1);
+			DIE(ret < 0, "Could not unmount FS");
 		}
 #endif
 
@@ -93,10 +110,17 @@ int main(void)
 		if (strncmp(cmd, "symlink", 7) == 0) {
 			arg1 = strtok(NULL, delim); /* oldpath */
 			arg2 = strtok(NULL, delim); /* newpath */
+
+			ret = symlink(arg1, arg2);
+			DIE(ret < 0, "Could not create symlink");
+
 		}
 		if (strncmp(cmd, "unlink", 6) == 0) {
 			/* TODO4: implement unlink */
 			arg1 = strtok(NULL, delim); /* pathname */
+
+			ret = unlink(arg1);
+			DIE(ret < 0, "Could not remove link");
 		}
 #endif
 
@@ -107,10 +131,16 @@ int main(void)
 		 */
 		if (strncmp(cmd, "mkdir", 5) == 0) {
 			arg1 = strtok(NULL, delim); /* pathname */
+
+			ret = mkdir(arg1, 0755);
+			DIE(ret < 0, "Could not create directory");
 		}
 		if (strncmp(cmd, "rmdir", 5) == 0) {
 			/* TODO5: implement rmdir pathname */
 			arg1 = strtok(NULL, delim); /* pathname */
+
+			ret = rmdir(arg1);
+			DIE(ret < 0, "Could not remove directory");
 		}
 #endif
 
@@ -122,6 +152,12 @@ int main(void)
 		if (strncmp(cmd, "ls", 2) == 0) {
 			/* recursively print files starting with arg1 */
 			arg1 = strtok(NULL, delim);
+
+			dirstream = opendir(arg1);
+			DIE(!dirstream, "Could not open directory");
+
+			while ((dirent = readdir(dirstream)) != NULL)
+				printf("%s\n", dirent->d_name);
 		}
 #endif
 
@@ -132,6 +168,9 @@ int main(void)
 			 * e.g: chdir bar
 			 */
 			arg1 = strtok(NULL, delim); /* pathname */
+
+			ret = chdir(arg1);
+			DIE(ret < 0, "Could not change working directory");
 		}
 
 		if (strncmp(cmd, "pwd", 3) == 0) {
@@ -140,6 +179,10 @@ int main(void)
 			 * e.g: pwd
 			 */
 			/* print workding directory */
+			arg1 = getcwd(line, MAX_LINE_SIZE);
+			DIE(!arg1, "Could not get cwd");
+
+			printf("%s\n", arg1);
 		}
 #endif
 	}
